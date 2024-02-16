@@ -1,15 +1,15 @@
-<template>
+<!-- <template>
     <div class="prueba">
-        <!-- <h1 v-if="isVisible">{{ message }}</h1> -->
+        <h1 v-if="isVisible">{{ message }}</h1> 
         <h1 v-bind:class="{ highlighted: isHighlighted }">{{ title }}</h1>
-        <!-- <button @click="toggleVisibility">Toggle Visibility</button> -->
+        <!-- <button @click="toggleVisibility">Toggle Visibility</button>
         <button v-on:click="toggleHighlight">Toggle Highlight</button>
         <input v-model="message">
         <ul>
             <li v-for="item in list" :key="item.id">{{ item.text }}</li>
         </ul>
     </div>
-</template>
+</template> 
 
 <script>
 export default {
@@ -45,4 +45,4 @@ export default {
 .highlighted {
     color: gold;
 }
-</style>
+</style> -->
