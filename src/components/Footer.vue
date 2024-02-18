@@ -12,14 +12,14 @@
         <img
           src="../assets/img/facebook.png"
           alt="facebook"
-          class="mr-10 w-[60px]"
+          class="mr-10 w-[60px] cursor-pointer"
           color="white"
           @click="navigateTo('https://facebook.com')"
         />
         <img
           src="../assets/img/twitter.png"
           alt="facebook"
-          class="mr-10 w-[60px]"
+          class="mr-10 w-[60px] cursor-pointer"
           color="white"
           @click="navigateTo('https://twitter.com')"
         />
@@ -27,7 +27,7 @@
         <img
           src="../assets/img/instagram.png"
           alt="facebook"
-          class="mr-10 w-[60px]"
+          class="mr-10 w-[60px] cursor-pointer"
           color="white"
           @click="navigateTo('https://instagram.com')"
         />
@@ -35,7 +35,7 @@
         <img
           src="../assets/img/linkedin.png"
           alt="facebook"
-          class="mr-10 w-[60px]"
+          class="mr-10 w-[60px] cursor-pointer"
           color="white"
           @click="navigateTo('https://linkedin.com')"
         />
