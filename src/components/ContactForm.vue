@@ -5,6 +5,7 @@
     <div class="flex flex-col m-6 justify-center items-center">
       <h4 class="font-bold text-3xl text-white">Contact Us</h4>
       <input
+        v-model="formData.name"
         type="email"
         id="email"
         class="my-[12px] w-[500px] text-sm p-2.5 bg-white rounded-lg border-2 border-black"
@@ -12,6 +13,7 @@
         required
       />
       <input
+        v-model="formData.email"
         type="password"
         id="repeat-password"
         class="my-[12px] w-[500px] text-sm p-2.5 bg-white rounded-lg border-2 border-black"
@@ -20,6 +22,7 @@
       />
 
       <textarea
+        v-model="formData.message"
         id="message"
         required
         rows="4"
@@ -39,7 +42,13 @@
 <script>
 import { ref } from "vue";
 
+const formData = ref({
+  name: "",
+  email: "",
+  message: "",
+})
 
+const formErrors = ref({})
 
 </script>
 
