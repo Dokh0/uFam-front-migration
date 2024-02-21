@@ -12,6 +12,7 @@ const routes = [
       { path: "contact", name: "contact", component: () => import('@/views/landingpage/Contact.vue') },
       { path: "cookies", name: "cookies", component: () => import ('@/views/landingpage/Cookies.vue') },
       { path: "decalogue", name: "decalogue", component: () => import ('@/views/landingpage/Decalogue.vue') },
+      { path: "faq", name: "faq", component: () => import ('@/views/landingpage/Faq.vue') },
     ]
   }
 ]
