@@ -10,7 +10,8 @@ const routes = [
       { path: '', name: 'home', component: () => import('@/views/landingpage/Home.vue') },
       { path: "aboutus", name: "aboutus", component: () => import('@/views/landingpage/Aboutus.vue') },
       { path: "contact", name: "contact", component: () => import('@/views/landingpage/Contact.vue') },
-      { path: "cookies", name: "cookies", component: () => import ('@/views/landingpage/Cookies.vue') }
+      { path: "cookies", name: "cookies", component: () => import ('@/views/landingpage/Cookies.vue') },
+      { path: "decalogue", name: "decalogue", component: () => import ('@/views/landingpage/Decalogue.vue') },
     ]
   }
 ]
