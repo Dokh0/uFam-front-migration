@@ -1,12 +1,13 @@
 <template>
   <form
     class="w-[55%] mx-auto bg-opacity-40 bg-black border-[3px] border-white rounded-[10px] my-20"
+    @submit.prevent="handleSubmit"
   >
     <div class="flex flex-col m-6 justify-center items-center">
       <h4 class="font-bold text-3xl text-white">Contact Us</h4>
       <input
         v-model="formData.name"
-        type="email"
+        type="message"
         id="email"
         class="my-[12px] w-[500px] text-sm p-2.5 bg-white rounded-lg border-2 border-black"
         placeholder="Name"
@@ -14,7 +15,7 @@
       />
       <input
         v-model="formData.email"
-        type="password"
+        type="email"
         id="repeat-password"
         class="my-[12px] w-[500px] text-sm p-2.5 bg-white rounded-lg border-2 border-black"
         required
@@ -39,8 +40,9 @@
   </form>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
+import axios from "axios";
 
 const formData = ref({
   name: "",
@@ -50,108 +52,39 @@ const formData = ref({
 
 const formErrors = ref({})
 
-</script>
-
-
-<!-- 
-<template>
-  <form
-    class="w-[55%] mx-auto bg-opacity-40 bg-black border-[3px] border-white rounded-[10px] my-20"
-    @submit.prevent="handleSubmit"
-  >
-    <div class="flex flex-col m-6 justify-center items-center">
-      <h4 class="font-bold text-3xl text-white">Contact Us</h4>
-      <input
-        v-model="formData.name"
-        type="text"
-        class="my-[12px] w-[500px] text-sm p-2.5 bg-white rounded-lg border-2 border-black"
-        placeholder="Name"
-        required
-      />
-      <input
-        v-model="formData.email"
-        type="email"
-        class="my-[12px] w-[500px] text-sm p-2.5 bg-white rounded-lg border-2 border-black"
-        required
-        placeholder="Email"
-      />
-
-      <textarea
-        v-model="formData.message"
-        rows="4"
-        class="my-[12px] w-[500px] text-sm p-2.5 bg-white rounded-lg border-2 border-black"
-        placeholder="Message"
-      ></textarea>
-      <button
-        type="submit"
-        class="text-white rounded-lg text-sm px-5 py-2.5 m-4 text-center font-bold bg-[#403f65] hover:bg-[#4a4aff] shadow-lg"
-      >
-        Send message
-      </button>
-    </div>
-  </form>
-
-  
-  Snackbar component would go here 
-
-
-</template>
-
-<script setup>
-import { ref } from 'vue';
-import axios from 'axios'; // Make sure axios is installed
-
-const formData = ref({
-  name: '',
-  email: '',
-  message: '',
-});
-
-const formErrors = ref({});
-
-const snackbar = ref({
-  open: false,
-  message: '',
-  severity: 'info',
-});
-
 const validate = () => {
-  const tempErrors = {};
-  tempErrors.name = formData.value.name ? '' : 'Name is required.';
+  let tempErrors = {}
+  
+  //NAME
+  tempErrors.name = formData.value.name ? "" : "Name is required."
+  
+  //EMAIL
+
   tempErrors.email = formData.value.email
-    ? /\S+@\S+\.\S+/.test(formData.value.email)
-      ? ''
-      : 'Email is not valid.'
-    : 'Email is required.';
-  tempErrors.message = formData.value.message ? '' : 'Message is required.';
-  formErrors.value = tempErrors;
-  return Object.values(tempErrors).every((x) => x === '');
-};
+  ? /\S+@\S+\.\S+/.test(formData.value.email) ? "" : "Email is not valid."
+  : "Email is required.";
+
+  //tempErrors.email = /\S+@\S+\.\S+/.test(formData.email) || "" ? "Enter a valid email." : formData.value.email
+
+  //MESSAGE
+  tempErrors.message = formData.value.message ? "" : "Message is required."
+  
+  formErrors.value = tempErrors
+  return Object.values(tempErrors).every((x) => x === "")
+}
 
 const handleSubmit = async () => {
   if (validate()) {
     try {
-      const endpoint = 'http://localhost:5174/api/contact'; // Change to your actual endpoint
+      const endpoint = 'http://localhost:5174/contact';
       await axios.post(endpoint, formData.value);
       formData.value = { name: '', email: '', message: '' };
-      snackbar.value = {
-        open: true,
-        message: 'Message sent successfully!',
-        severity: 'success',
-      };
+      alert("Message sent successfully!")
     } catch (error) {
-      snackbar.value = {
-        open: true,
-        message: 'An error occurred. Please try again later.',
-        severity: 'error',
-      };
+      console.error('An error occurred:', error);
+      alert("An error ocurred. Please, try again later.")
     }
   }
 };
 
-const handleCloseSnackbar = () => {
-  snackbar.value.open = false;
-};
 </script>
-
--->

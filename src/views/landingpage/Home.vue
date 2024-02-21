@@ -54,7 +54,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import ContactFormVue from "../components/ContactForm.vue";
+import ContactFormVue from "../../components/ContactForm.vue";
 
 const router = useRouter();
 const navigateTo = (path) => {
@@ -79,19 +79,4 @@ const cards = ref([
   },
 ]);
 
-/* export default {
-    name: "Home",
-    components: {
-      
-    },
-    setup() {
-      return{
-        cards,
-      }
-    }
-  } */
 </script>
-
-<!--
-
- -->
